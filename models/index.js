@@ -1,25 +1,62 @@
 const User = require('./User');
-const Blogpost = require('./Blog');
-
-User.hasMany(Blogpost, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+const Post = require('./Post');
+const Comment = require('./Comment');
+/*
+User.hasMany(Post, {
+    foreignKey: 'user_id'
 });
 
-Blogpost.belongsTo(User, {
-  foreignKey: 'user_id'
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
-module.exports = { User, Blogpost };
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
 
-// const router = require('express').Router();
+Post.hasMany(Comment, {
+    foreignKey: 'post_id'
+});
 
-// const apiRoutes = require('./api/');
-// const homeRoutes = require('./home-routes.js');
-// const dashboardRoutes = require('./dashboard-routes.js');
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
 
-// router.use('/', homeRoutes);
-// router.use('/api', apiRoutes);
-// router.use('/dashboard', dashboardRoutes);
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
+});
+*/
 
-// module.exports = router;
+User.hasMany(Post, {
+    foreignKey: 'user_id'
+});
+
+Post.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
+
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
+
+Comment.belongsTo(Post, {
+    foreignKey: 'post_id',
+    onDelete: 'SET NULL'
+});
+
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
+
+Post.hasMany(Comment, {
+    foreignKey: 'post_id'
+});
+
+module.exports = { User, Post, Comment }
