@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../config/connection');
 
 class Post extends Model { }
 
@@ -33,6 +33,7 @@ Post.init(
     },
     {
         sequelize,
+        timestamps: true, //??? I think this will stamp the blog post with a time that it was posted
         freezeTableName: true,
         underscored: true,
         modelName: 'post'
