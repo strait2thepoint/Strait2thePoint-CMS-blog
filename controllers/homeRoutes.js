@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all posts and JOIN with user data
     const postData = await Post.findAll({
       include: [
         {
@@ -38,7 +38,7 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    const project = posttData.get({ plain: true });
+    const post = postData.get({ plain: true });
 
     res.render('post', {
       ...post,

@@ -6,16 +6,16 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Blog:</h3>
 
-    <form class="form new-project-form">
+    <form class="form new-blog-title">
       <div class="form-group">
-        <label for="project-name">blog name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="blog-title">blog title:</label>
+        <input class="form-input" type="text" id="blog-title" name="blog-title" />
       </div>
       <div class="form-group">
-        <label for="project-desc">blog:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
+        <label for="blog">blog:</label>
+        <textarea class="form-input" id="blog" name="blog"></textarea>
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
@@ -24,7 +24,7 @@
   </div>
 
   {{#if posts.length}}
-  <div class="col-md-6 project-list">
+  <div class="col-md-6 blog-list">
     <h3>Current Posts:</h3>
 
     {{#each posts as |post|}}
