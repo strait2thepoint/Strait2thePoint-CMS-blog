@@ -1,12 +1,19 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  {{!-- change this --}}
-  <p>{{description}}</p> 
-  {{!-- change this --}}
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  
-  <p>
-    <button class="btn btn-primary">button!</button>
-  </p>
+{{#if posts.length}}
+  <div class="col-md-6 blog-list">
+    <h3>Current Posts:</h3>
+
+    {{#each posts as |post|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
 </div>
